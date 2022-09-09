@@ -10,5 +10,5 @@ echo ${#allCluster[@]}
 for cluster in ${allCluster[@]}
 do
     echo "Joining cluster member. Cluster id $cluster"
-    az fleet member join --member-cluster-id $cluster -n $FLEET -g $GROUP
+    az fleet member join --member-cluster-id $cluster -n $FLEET_2 -g $GROUP
 done
