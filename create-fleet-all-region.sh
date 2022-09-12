@@ -1,0 +1,2 @@
+allRegions=($(az provider show -n Microsoft.ContainerService | jq -r '.resourceTypes[] | select(.resourceType=="managedClusters") | .locations[]' | sort | while IFS='' read location; do az account list-locations | jq --arg location "$location" -r '.[] | .name'; done))
+echo "Total number of available regions ${#allRegions[@]}"
