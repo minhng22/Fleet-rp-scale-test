@@ -1,0 +1,1 @@
+I had to separate create-fleet-all-region.sh because I couldn't figure out how to separate the env bar when running join fleet concurrently. There should be a better way but this hack does it for now.

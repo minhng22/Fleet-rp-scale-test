@@ -3,6 +3,7 @@ aksRegions=()
 while read object; do
     aksRegions+=("${object}")
 done < <(az provider show -n Microsoft.ContainerService | jq -r '.resourceTypes[] | select(.resourceType=="managedClusters") | .locations[]')
+aksRegions=("${aksRegions[@]:0:4}")
 for region in "${aksRegions[@]}"; do
     echo "reg ${region}"
     regionNames=($(az account list-locations --query "[? displayName == '${region}'].name" --output tsv))
